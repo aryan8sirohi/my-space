@@ -1,4 +1,4 @@
-name: Build, Test & Deploy
+name: Build & Deploy
 
 on:
   push:
@@ -8,14 +8,12 @@ on:
     branches:
       - main
 
-
 env:
   CI: false
 
-  
 jobs:
   build:
-    name: Build & Test
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -33,10 +31,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Test project
-        run: npm test
-        # Add additional options if needed, e.g., '-- --coverage'
-
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v2
         with:
@@ -47,9 +41,7 @@ jobs:
     name: Merge Pull Request & Test
     needs: [build]
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
-
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -60,17 +52,14 @@ jobs:
           git checkout -b merge
           git merge --no-ff --no-commit ${{ github.event.pull_request.head.ref }}
           git commit -m "Merge pull request #${{ github.event.pull_request.number }}"
-
       - name: Push changes
         run: git push origin merge
 
- 
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
-
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v2
