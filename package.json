@@ -36,5 +36,9 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://restroreff.microlent.com/poc"
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
 }
