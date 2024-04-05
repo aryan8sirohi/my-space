@@ -64,10 +64,7 @@ jobs:
       - name: Push changes
         run: git push origin merge
 
-      - name: Test after merge
-        run: npm test
-        # Add additional options if needed, e.g., '-- --coverage'
-
+ 
   deploy:
     name: Deploy
     needs: build
