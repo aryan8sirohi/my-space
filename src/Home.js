@@ -1,59 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const Home = () => {
-    const baseUrl = process.env.REACT_APP_BASE_URL;
-    // function isInstagramApp() {
-    //     const userAgent = navigator?.userAgent;
-    //     return userAgent?.includes('Instagram') || userAgent?.includes('FBAN/Instagram'); // Detect Instagram app more reliably
-    //   }
-      
-    //   function openLink(baseUrl) {
-    //     if (isInstagramApp()) {
-    //       // Open in Safari or Chrome on iOS (consider user preference for Android)
-    //       window.location.href = window.location.origin;
-    //     } else {
-    //         window.open(baseUrl, '_blank');
-        
-    //     }
-        
-    //   }
-    // function openLink(url) {
-    //     var ua = navigator.userAgent;
-    //     var isInstagram = (ua.indexOf('Instagram') > -1) ? true : false;
-        
-    //     if (isInstagram) {
-    //       if (/iPad|iPhone|iPod/.test(ua)) {
-    //         // Open in Safari on iOS
-    //         window.location.href = 'https://restroreff.microlent.com/poc';
-    //       } else if (/Android/.test(ua)) {
-    //         // Open in Chrome on Android
-    //         window.location.href = 'googlechrome://restroreff.microlent.com/poc';
-    //       }
-    //     }
-        
-        
-    //   }
-      
-    //   // Call the openLink function with your URL
-    //   openLink("https://restroreff.microlent.com/poc");
 
-    //   useEffect(()=>{
-    //     openLink("https://restroreff.microlent.com/poc");
-    //   },[])
-
-    //   useEffect(() => {
-    //     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    //     const str = navigator.userAgent;
-    //     const instagram = str.indexOf("Instagram");
-    //     const facebook = str.indexOf("FB");
-    
-    //     if (/android/i.test(userAgent) && (instagram !== -1 || facebook !== -1)) {
-    //       const openBrowserUrl = document.getElementById('open-browser-url');
-    //       if (openBrowserUrl) {
-    //         openBrowserUrl.click();
-    //       }
-    //     }
-    //   }, []);
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
