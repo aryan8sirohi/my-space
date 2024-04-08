@@ -73,5 +73,5 @@ jobs:
           server: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          local-dir: ./build
-          remote-dir: /poc
+          server-dir: /poc
+          local-dir: ./build/
