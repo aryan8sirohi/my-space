@@ -76,4 +76,4 @@ jobs:
           server: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          server-dir: /poc
+          server-dir: /poc/   # Ensure it ends with a slash
