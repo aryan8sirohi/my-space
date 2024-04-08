@@ -10,7 +10,7 @@ on:
 env:
   CI: false
 
-  
+
 jobs:
   build:
     name: Build & Test  # Combine build and test steps
@@ -61,9 +61,6 @@ jobs:
       - name: Push changes
         run: git push origin merge
 
-      - name: Test after merge
-        run: npm test  # Assuming tests are in 'npm test' script
-        # Add additional options if needed, e.g., '-- --coverage'
 
   deploy:
     name: Deploy  # Corrected indentation (same level as 'build' and 'merge-and-test')
