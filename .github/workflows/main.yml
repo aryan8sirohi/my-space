@@ -76,8 +76,11 @@ jobs:
           name: production-files
           path: ./build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+   - name: Deploy to Server
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
-          github_token: ${{ secrets.TOKEN }}
-          publish_dir: ./build
+  server: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          local-dir: ./build
+          remote-dir: /poc
