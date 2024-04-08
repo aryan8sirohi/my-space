@@ -44,6 +44,7 @@ const Home = () => {
         <a id="open-browser-url" style={{ display: 'none' }} href="https://restroreff.microlent.com/poc" download target="_blank" rel="noopener noreferrer"></a>
 
         <iframe width="560" height="315" src="https://www.youtube.com/embed/-4zsY28t76k?si=G0huABLUs2dXKMDQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <h1 className="display-4 mb-4">Thanks for visiting!</h1>
       </div>
     </>
   );
