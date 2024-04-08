@@ -76,5 +76,4 @@ jobs:
           server: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          local-dir: ./build/  # Ensure it ends with a slash
-          server-dir: /poc/   # Ensure it ends with a slash
+          server-dir: /poc
