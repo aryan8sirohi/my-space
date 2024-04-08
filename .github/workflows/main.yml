@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build & Test
+    name: Build & Test  # Combine build and test steps
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +29,7 @@ jobs:
         run: npm run build
 
       - name: Test project
-        run: npm test
+        run: npm test  # Assuming tests are in 'npm test' script
         # Add additional options if needed, e.g., '-- --coverage'
 
       - name: Upload production-ready build files
@@ -39,10 +39,9 @@ jobs:
           path: ./build
 
   merge-and-test:
-    name: Merge Pull Request & Test
+    name: Merge Pull Request & Test  # Combine merge and test steps
     needs: [build]
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
-
     runs-on: ubuntu-latest
 
     steps:
@@ -60,11 +59,11 @@ jobs:
         run: git push origin merge
 
       - name: Test after merge
-        run: npm test
+        run: npm test  # Assuming tests are in 'npm test' script
         # Add additional options if needed, e.g., '-- --coverage'
 
-    deploy:
-    name: Deploy  # Correct indentation for the name field
+  deploy:
+    name: Deploy  # Corrected indentation (same level as 'build' and 'merge-and-test')
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
