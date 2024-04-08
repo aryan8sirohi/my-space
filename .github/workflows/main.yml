@@ -55,23 +55,22 @@ jobs:
       - name: Push changes
         run: git push origin merge
 
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: production-files
-          path: ./build
-
-      - name: Deploy to Server
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          server: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          server-dir: /poc
-          local-dir: ./build/
+deploy:
+  name: Deploy
+  needs: build
+  runs-on: ubuntu-latest
+  if: github.ref == 'refs/heads/main' || github.event_name == 'pull_request'
+  steps:
+    - name: Download artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: production-files
+        path: ./build
+    - name: Deploy to Server
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ${{ secrets.HOST }}
+        username: ${{ secrets.PASSWORD }}
+        password: ${{ secrets.PASSWORD }}
+        local-dir: ./build/  # Assuming the build directory already ends with a slash
+        server-dir: /poc/   # Add the trailing slash here
